@@ -117,6 +117,9 @@ RUN apt-get remove --purge -y software-properties-common && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/?? && \
     rm -rf /usr/share/man/??_*
+#add laravel cronjob
+ADD crontab /etc/cron.d/laravel-cron
+RUN chmod 0644 /etc/cron.d/laravel-cron
 
 # expose ports
 EXPOSE 80 443 3306 6379
