@@ -1,12 +1,16 @@
 Docker version of Laravel Homestead
 
 # How To build it
-OS ubuntu14.04
-mv Dockerfile.ubuntu Dockerfile
-docker build -t laravel-oauth .
-OS Mac
-mv Dockerfile.mac Dockerfile
-docker build -t laravel-oauth .
+  1. OS ubuntu14.04
+  ```
+     mv Dockerfile.ubuntu Dockerfile
+     docker build -t laravel-oauth .
+  ```
+  2. OS Mac
+  ```   
+     mv Dockerfile.mac Dockerfile
+     docker build -t laravel-oauth .
+  ```
 
 laravel version 5.4
 
@@ -40,7 +44,7 @@ You can find the latest build details on the [Docker Hub](https://hub.docker.com
   ```  
   2. Run the container
   ```
-    docker run --name laravel -d -p 80:80 -v /path/to/your/app:/var/www/html/app ninjia/laravel-oauth
+    docker run --name laravel -d -p 8088:80 -v /path/to/your/app:/var/www/html/app ninjia/laravel-oauth
   ```
   3. Stop or start container
   ```
@@ -58,4 +62,3 @@ ubuntu image
 - MySQL Username = `homestead`
 - MySQL Password = `secret`
 - MySQL Database = `homestead`
-
