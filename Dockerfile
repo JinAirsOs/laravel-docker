@@ -120,7 +120,7 @@ RUN apt-get remove --purge -y software-properties-common && \
 ADD crontab /etc/cron.d/laravel-cron
 RUN chmod 0644 /etc/cron.d/laravel-cron
 
-# set work
+# set workdir
 WORKDIR /var/www/html/app
 
 # expose ports
