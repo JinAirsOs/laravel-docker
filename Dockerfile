@@ -88,8 +88,8 @@ RUN composer global require "laravel/envoy"
 RUN composer global require "laravel/installer"
 
 # install nodejs,gulp
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - &&\
-    sudo apt-get install -y nodejs &&\
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
+    apt-get install -y nodejs && \
     npm install -g gulp
 
 # install redis 

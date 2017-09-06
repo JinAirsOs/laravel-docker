@@ -87,9 +87,9 @@ RUN composer global require "laravel/envoy"
 #install laravel installer
 RUN composer global require "laravel/installer"
 
-# install nodejs,gulp
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - &&\
-    sudo apt-get install -y nodejs &&\
+# install nodejs,gulp,bower
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
+    apt-get install -y nodejs && \
     npm install -g gulp
 
 # install redis 
@@ -116,7 +116,7 @@ RUN apt-get remove --purge -y software-properties-common && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/?? && \
     rm -rf /usr/share/man/??_*
-# laravel cronjob
+#add laravel cronjob
 ADD crontab /etc/cron.d/laravel-cron
 RUN chmod 0644 /etc/cron.d/laravel-cron
 
