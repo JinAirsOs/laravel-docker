@@ -90,8 +90,7 @@ RUN composer global require "laravel/installer"
 # install nodejs,gulp,bower
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
     apt-get install -y nodejs && \
-    npm install -g gulp && \
-    npm install -g bower
+    npm install -g gulp
 
 # install redis 
 RUN apt-get install -y redis-server
@@ -120,6 +119,9 @@ RUN apt-get remove --purge -y software-properties-common && \
 #add laravel cronjob
 ADD crontab /etc/cron.d/laravel-cron
 RUN chmod 0644 /etc/cron.d/laravel-cron
+
+# set workdir
+WORKDIR /var/www/html/app
 
 # expose ports
 EXPOSE 80 443 3306 6379
