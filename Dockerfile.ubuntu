@@ -124,6 +124,9 @@ RUN chmod 0644 /etc/cron.d/laravel-cron
 # expose ports
 EXPOSE 80 443 3306 6379
 
+# set workdir
+WORKDIR /var/www/html/app
+
 # set container entrypoints
 ENTRYPOINT ["/bin/bash","-c"]
 CMD ["/usr/bin/supervisord"]

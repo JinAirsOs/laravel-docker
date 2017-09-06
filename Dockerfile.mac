@@ -85,8 +85,8 @@ RUN composer global require "laravel/envoy"
 RUN composer global require "laravel/installer"
 
 # install nodejs,gulp,bower
-RUN apt-get install -y nodejs && \
-    apt-get install -y npm && \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
+    apt-get install -y nodejs && \
     npm install -g gulp && \
     npm install -g bower
 
@@ -120,6 +120,9 @@ RUN chmod 0644 /etc/cron.d/laravel-cron
 
 # expose ports
 EXPOSE 80 443 3306 6379
+
+# set workdir
+WORKDIR /var/www/html/app
 
 # set container entrypoints
 ENTRYPOINT ["/bin/bash","-c"]
