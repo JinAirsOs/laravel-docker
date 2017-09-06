@@ -88,8 +88,8 @@ RUN composer global require "laravel/envoy"
 RUN composer global require "laravel/installer"
 
 # install nodejs,gulp,bower
-RUN apt-get install -y nodejs && \
-    apt-get install -y npm && \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
+    apt-get install -y nodejs && \
     npm install -g gulp && \
     npm install -g bower
 
